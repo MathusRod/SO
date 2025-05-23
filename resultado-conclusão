@@ -1,0 +1,50 @@
+# 1. Introdução
+
+## Hipótese
+
+O desempenho dos algoritmos de escalonamento de processos (FCFS, SJF e Round Robin) é influenciado pela ordem de chegada dos processos, pelo seu tempo de execução (burst) e pelo valor do quantum no RR. Espera-se que o SJF minimize o tempo médio de espera e de retorno, enquanto o RR balanceia resposta e vazão dependendo do quantum.
+
+# Metodologias
+
+- Implementação: código em Python 3 com classe Processo e três funções de escalonamento (FCFS, SJF e RR).
+
+- Geração de cenários: 109 processos com tempos de chegada distintos (aleatórios em [0,100]) e bursts aleatórios em [1,30].
+
+# Resultados
+ - A seguir, gráficos comparativos das métricas para cada algoritmo
+
+### Tempo Médio de Espera
+
+ - FCFS tende a bloqueios de processos curtos quando chegam após processos longos.
+
+ - SJF apresenta as menores esperas médias.
+
+ - RR varia conforme o quantum: valores intermediários (quantum = 4) equilibram overhead e tempo de resposta.
+
+  [Gráfico com a média de espera]
+
+### Tempo Médio de Retorno
+
+ - SJF novamente lidera, com menor tempo médio de retorno.
+
+ - RR com quantum pequeno (2) aproxima o desempenho do SJF para processos curtos, mas sofre overhead maior.
+
+ - FCFS fica atrás em cenários com bursts heterogêneos.
+
+  [Gráfico com a média de retorno]
+
+### Vazão
+
+ - FCFS e SJF alcançam vazões parecidas, pois não preemptam e têm overhead fixo (troca de contexto).
+
+ - RR sofre ligeira queda de vazão conforme o quantum diminui devido ao aumento de trocas.
+
+  [Gráfico com a média de vazão]
+
+# Conclusão
+
+ - O SJF foi o algoritmo mais eficiente em termos de tempo médio (espera e retorno), confirmando a hipótese de que priorizar processos curtos reduz latência.
+
+ - O RR mostra-se versátil: com quantum adequado (4), atinge bom equilíbrio entre tempo de resposta e vazão. Quantum muito pequeno aumenta overhead; muito grande aproxima-se do FCFS.
+
+ - O FCFS é simples, mas penaliza processos curtos que chegam após longos, resultando em maiores tempos de espera e retorno.
