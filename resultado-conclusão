@@ -8,7 +8,7 @@ O desempenho dos algoritmos de escalonamento de processos (FCFS, SJF e Round Rob
 
 - Implementação: código em Python 3 com classe Processo e três funções de escalonamento (FCFS, SJF e RR).
 
-- Geração de cenários: 109 processos com tempos de chegada distintos (aleatórios em [0,100]) e bursts aleatórios em [1,30].
+- Geração de cenários: 100 processos com tempos de chegada distintos (aleatórios em [0,100]) e bursts aleatórios em [1,30].
 
 # Resultados
  - A seguir, gráficos comparativos das métricas para cada algoritmo

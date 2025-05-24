@@ -101,7 +101,7 @@ def main():
     bursts = [random.randint(1, 30) for _ in range(N)]
     processos = [Processo(pid=i+1, arrival=arrivals[i], burst=bursts[i]) for i in range(N)]
 
-    quantums = [2, 4, 6, 20, 50]
+    quantums = [2, 4, 6]
 
     resultados = {}
     _, met_fcfs = escalonamento_fcfs(copy.deepcopy(processos))
